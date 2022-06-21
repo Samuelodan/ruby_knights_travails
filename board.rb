@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative './square.rb'
+require_relative './square'
 
 # creates boards
 class Board
