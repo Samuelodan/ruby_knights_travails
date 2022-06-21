@@ -8,6 +8,16 @@ class Board
     @squares = []
   end
 
+  def build
+    result = []
+    (0..7).to_a.repeated_permutation(2) do |perm|
+      square = Square.new(perm)
+      square.adjacents = add_adj(perm)
+      result << square
+    end
+    result
+  end
+
   def add_adj(coor)
     arr = []
     coor => [x, y]
