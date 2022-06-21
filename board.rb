@@ -42,8 +42,6 @@ class Board
   end
 
   def look_for(coor)
-    for square in @squares
-      return square if square.coordinate == coor
-    end
+    @squares.find { |sq| sq.coordinate == coor}
   end
 end
