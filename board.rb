@@ -5,7 +5,7 @@ require_relative './square'
 # creates boards
 class Board
   def initialize
-    @squares = []
+    @squares = build
   end
 
   def build
