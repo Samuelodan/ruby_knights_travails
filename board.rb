@@ -21,7 +21,14 @@ class Board
     arr << [x + 1, y + 2]
     arr << [x + 1, y - 2]
 
-    arr
+    validate_adj(arr)
+  end
+
+  def validate_adj(adj_list)
+    adj_list.select do |el|
+      el => [x, y]
+      x.between?(0, 7) && y.between?(0, 7)
+    end
   end
 
   def look_for(coor)
