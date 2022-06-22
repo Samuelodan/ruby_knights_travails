@@ -18,6 +18,27 @@ class Board
     result
   end
 
+  def bfs(start, stop)
+    reset_sqs
+    look_for(start).distance = 0
+
+    queue = [look_for(start)]
+
+    until queue.empty?
+      current = queue.shift
+      break if current.coordinate == stop
+      current.adjacents.each do |adj|
+        square = look_for(adj)
+        if square.distance.nil?
+          square.distance = current.distance + 1
+          square.predecessor = current
+          queue << square
+        end
+      end
+    end
+    current
+  end
+
   def add_adj(coor)
     arr = []
     coor => [x, y]
