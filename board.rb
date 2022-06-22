@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative './square'
+require 'debug'
 
 # creates boards
 class Board
@@ -36,7 +37,21 @@ class Board
         end
       end
     end
-    current
+    trace(start, current)
+  end
+
+  def trace(start, stop)
+    arr = []
+    move_count = stop.distance
+    queue = [stop.coordinate]
+    until queue.empty?
+      current = look_for(queue.shift)
+      if current.predecessor
+        queue << current.predecessor.coordinate
+      end
+      arr.unshift(current.coordinate)
+    end
+    arr << move_count
   end
 
   def add_adj(coor)
