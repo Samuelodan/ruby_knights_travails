@@ -44,4 +44,12 @@ class Board
   def look_for(coor)
     @squares.find { |sq| sq.coordinate == coor}
   end
+
+  private
+  def reset_sqs
+    @squares.each do |sq|
+      sq.predecessor = nil
+      sq.distance = nil
+    end
+  end
 end
