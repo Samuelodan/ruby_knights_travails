@@ -20,6 +20,10 @@ class Board
   end
 
   def knight_moves(start, stop)
+    unless valid_input?(start) && valid_input?(stop)
+      puts "enter valid coordinates"
+      return
+    end
     result = bfs(start, stop)
     move_count = result.pop
     puts "Nice! You made it in #{move_count} moves"
