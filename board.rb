@@ -19,6 +19,17 @@ class Board
     result
   end
 
+  def knight_moves(start, stop)
+    result = bfs(start, stop)
+    move_count = result.pop
+    puts "Nice! You made it in #{move_count} moves"
+    puts "Here's your path:"
+    result.each do |move|
+      p move
+    end
+    nil
+  end
+
   def bfs(start, stop)
     reset_sqs
     look_for(start).distance = 0
