@@ -55,10 +55,10 @@ class Board
         queue << square
       end
     end
-    trace(start, current)
+    trace(current)
   end
 
-  def trace(start, stop)
+  def trace(stop)
     arr = []
     move_count = stop.distance
     queue = [stop.coordinate]
