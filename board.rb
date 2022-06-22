@@ -99,4 +99,10 @@ class Board
       sq.distance = nil
     end
   end
+
+  def valid_input?(cood)
+    return unless cood.is_a?(Array)
+    cood => [x, y]
+    x.between?(0, 7) && y.between?(0, 7)
+  end
 end
