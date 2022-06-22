@@ -9,16 +9,6 @@ class Board
     @squares = build
   end
 
-  def build
-    result = []
-    (0..7).to_a.repeated_permutation(2) do |perm|
-      square = Square.new(perm)
-      square.adjacents = add_adj(perm)
-      result << square
-    end
-    result
-  end
-
   def knight_moves(start, stop)
     unless valid_input?(start) && valid_input?(stop)
       puts "enter valid coordinates"
@@ -32,6 +22,18 @@ class Board
       p move
     end
     nil
+  end
+
+  private
+
+  def build
+    result = []
+    (0..7).to_a.repeated_permutation(2) do |perm|
+      square = Square.new(perm)
+      square.adjacents = add_adj(perm)
+      result << square
+    end
+    result
   end
 
   def bfs(start, stop)
@@ -96,7 +98,6 @@ class Board
     @squares.find { |sq| sq.coordinate == coor}
   end
 
-  private
   def reset_sqs
     @squares.each do |sq|
       sq.predecessor = nil
