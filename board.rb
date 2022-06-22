@@ -94,7 +94,7 @@ class Board
   end
 
   def look_for(coor)
-    @squares.find { |sq| sq.coordinate == coor}
+    @squares.find { |sq| sq.coordinate == coor }
   end
 
   def reset_sqs
@@ -106,6 +106,7 @@ class Board
 
   def valid_input?(cood)
     return unless cood.is_a?(Array)
+
     cood => [x, y]
     x.between?(0, 7) && y.between?(0, 7)
   end
