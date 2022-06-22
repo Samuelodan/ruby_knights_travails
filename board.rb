@@ -64,9 +64,7 @@ class Board
     queue = [stop.coordinate]
     until queue.empty?
       current = look_for(queue.shift)
-      if current.predecessor
-        queue << current.predecessor.coordinate
-      end
+      current.predecessor && queue << current.predecessor.coordinate
       arr.unshift(current.coordinate)
     end
     arr << move_count
