@@ -11,7 +11,7 @@ class Board
 
   def knight_moves(start, stop)
     unless valid_input?(start) && valid_input?(stop)
-      puts "enter valid coordinates"
+      puts 'enter valid coordinates'
       return
     end
     result = bfs(start, stop)
@@ -45,13 +45,14 @@ class Board
     until queue.empty?
       current = queue.shift
       break if current.coordinate == stop
+
       current.adjacents.each do |adj|
         square = look_for(adj)
-        if square.distance.nil?
-          square.distance = current.distance + 1
-          square.predecessor = current
-          queue << square
-        end
+        next unless square.distance.nil?
+
+        square.distance = current.distance + 1
+        square.predecessor = current
+        queue << square
       end
     end
     trace(start, current)
