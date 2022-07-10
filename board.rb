@@ -71,17 +71,14 @@ class Board
 
   def add_adj(coor)
     arr = []
-    coor => [x, y]
-
-    arr << [x - 2, y - 1]
-    arr << [x + 2, y - 1]
-    arr << [x - 2, y + 1]
-    arr << [x + 2, y + 1]
-    arr << [x - 1, y + 2]
-    arr << [x - 1, y - 2]
-    arr << [x + 1, y + 2]
-    arr << [x + 1, y - 2]
-
+    [
+      [-2, -1], [+2, -1], [-2, +1], [+2, +1],
+      [-1, +2], [-1, -2], [+1, +2], [+1, -2]
+    ].each do |move|
+      x = coor[0] + move[0]
+      y = coor[1] + move[1]
+      arr << [x, y]
+    end
     validate_adj(arr)
   end
 
