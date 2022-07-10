@@ -15,11 +15,8 @@ class Board
     end
     result = bfs(start, stop)
     move_count = result.pop
-    puts "Nice! You made it in #{move_count} moves"
-    puts "Here's your path:"
-    result.each do |move|
-      p move
-    end
+    puts "Nice! You made it in #{move_count} moves \nHere's your path:"
+    result.each { |move| p move }
     nil
   end
 
